@@ -15,7 +15,7 @@ import copy
 def buildlib(path, verbose=False, cut=-1):
 
     if verbose:
-        print "Parsing gist library file..."
+        print ("Parsing gist library file...")
     gdatarec_options, gdata_options = read_gistin(path)
     gdatarec_dict = OrderedDict()
     gdata_dict = OrderedDict()
@@ -54,15 +54,15 @@ def buildlib(path, verbose=False, cut=-1):
         if verbose:
             i += 1
             if i==1:
-                print "Loading receptor data..."
+                print ("Loading receptor data...")
             if i==2:
-                print "Loading pose/complex/ligand data..."
+                print ("Loading pose/complex/ligand data...")
 
         for gist_i, gistdata in enumerate(options_list):
             options_dict[gist_i] = OrderedDict()
 
             if verbose:
-                print "Loading gistdata section %d ..." %gist_i
+                print ("Loading gistdata section %d ..." %gist_i)
             for option in allowed_options:
                 if option in gistdata.keys():
                     value = gistdata[option]
@@ -99,7 +99,7 @@ def buildlib(path, verbose=False, cut=-1):
                                 else:
                                     for gdat in value:
                                         if verbose:
-                                            print "Loading %s ..." %gdat
+                                            print ("Loading %s ..." %gdat)
                                         gdatlist.append(loadgist(gdat))
                             elif len(value)>1:
                                 raise IOError("Option %s seems to be defined more than once." %option)
@@ -125,21 +125,21 @@ def buildlib(path, verbose=False, cut=-1):
                         if topo != None \
                         and strc != None:
                             if verbose:
-                                print "Loading %s ..." %topo
+                                print ("Loading %s ..." %topo)
                             initdict["pmd"]  = pmd.load_file(topo)
                             if verbose:
-                                print "Loading %s ..." %strc
+                                print ("Loading %s ..." %strc)
                             initdict["pmd"].load_rst7(strc)
                             if sele != None:
                                 if verbose:
-                                    print "Making selection %s ..." %sele
+                                    print ("Making selection %s ..." %sele)
                                 initdict["pmd"]  = initdict["pmd"][sele]
                         
                         ### Gist data
                         if gdatlist != None:
                             if len(gdatlist)>1:
                                 if verbose:
-                                    print "Merging gistdata ..."
+                                    print ("Merging gistdata ...")
                                 initdict["gdat"] = merge_gist(gdatlist)
                             elif len(gdatlist)==1:
                                 initdict["gdat"] = copy.copy(gdatlist[0])
@@ -161,7 +161,7 @@ def buildlib(path, verbose=False, cut=-1):
                         if cut>=0 and initdict["gdat"] != None:
 
                             if verbose:
-                                print "Cutting down grids ..."
+                                print ("Cutting down grids ...")
                             if not "pmd" in initdict.keys():
                                 raise IOError("If using cut, parameter and coordinate files must be provided.")
 

@@ -668,9 +668,9 @@ def bounding_edge_frac(frac_structure, delta=np.ones(3), _buffer=0., verbose=Fal
     bounding_max += int(np.round(_buffer))
 
     if verbose:
-        print "Bounding min. ", bounding_min
-        print "Bounding max. ", bounding_max
-        print np.arange(bounding_min[2], bounding_max[2]+1, delta[2], dtype=int )
+        print ("Bounding min. ", bounding_min)
+        print ("Bounding max. ", bounding_max)
+        print (np.arange(bounding_min[2], bounding_max[2]+1, delta[2], dtype=int ))
 
     return bounding_min, bounding_max
 

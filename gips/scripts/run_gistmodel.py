@@ -27,32 +27,32 @@ def gistmodel(gdatarec_lib, gdata_lib, mode, parms=6, pairs=False, decomp_E=Fals
             scaling=2.0, parmsfile=None):
 
     if verbose:
-        print "Start optimization with"
-        print "mode      = %d"    %mode
-        print "optimizer = %s"    %optimizer
-        print "niter     = %d"    %niter
-        print "nmin      = %d"    %nmin
+        print ("Start optimization with")
+        print ("mode      = %d"    %mode)
+        print ("optimizer = %s"    %optimizer)
+        print ("niter     = %d"    %niter)
+        print ("nmin      = %d"    %nmin)
         if optimizer=="evolution":
-            print "popsize   = %d" %popsize
-        print "kforce    = %6.3f" %kforce
-        print "gradient  = %s"    %gradient
-        print "boundary  = %s"    %boundary
-        print "pairs     = %s"    %pairs
-        print "decomp_E  = %s"    %decomp_E
-        print "decomp_S  = %s"    %decomp_S
+            print ("popsize   = %d" %popsize)
+        print ("kforce    = %6.3f" %kforce)
+        print ("gradient  = %s"    %gradient)
+        print ("boundary  = %s"    %boundary)
+        print ("pairs     = %s"    %pairs)
+        print ("decomp_E  = %s"    %decomp_E)
+        print ("decomp_S  = %s"    %decomp_S)
         if pairs:
-            print "pairfile  = %s"    %pairfile
-            print "paircut   = %6.3f" %paircut
-        print "softness  = %6.3f" %softness
-        print "softcut   = %6.3f" %softcut
-        print "shuffle   = %s"    %shuffle
-        print "ksplit    = %d"    %ksplit
+            print ("pairfile  = %s"    %pairfile)
+            print ("paircut   = %6.3f" %paircut)
+        print ("softness  = %6.3f" %softness)
+        print ("softcut   = %6.3f" %softcut)
+        print ("shuffle   = %s"    %shuffle)
+        print ("ksplit    = %d"    %ksplit)
         if ksplitfile != None \
         and ksplitfile != "":
-            print "Splitfile %s" %ksplitfile
+            print ("Splitfile %s" %ksplitfile)
         if exclude != None \
         and exclude != "":
-            print "Exclude file %s" %exclude
+            print ("Exclude file %s" %exclude)
 
     optparms = OrderedDict()
     optparms["Niter               "] = niter
@@ -93,7 +93,7 @@ def gistmodel(gdatarec_lib, gdata_lib, mode, parms=6, pairs=False, decomp_E=Fals
         optparms["Exclude file        "] = exclude
 
     if verbose:
-        print "Organizing and preparing data ..."
+        print ("Organizing and preparing data ...")
 
     mode_dict = dict()
     mode_dict = {0 : mode0,
@@ -125,7 +125,7 @@ def gistmodel(gdatarec_lib, gdata_lib, mode, parms=6, pairs=False, decomp_E=Fals
         ### the metadata (this should be fast).
 
         if verbose:
-            print "Preloading the gdat lib ..."
+            print ("Preloading the gdat lib ...")
         fit_lib = gdat_fit_lib(gdatarec_dict=gdatarec_lib,
                             gdata_dict=gdata_lib,
                             ref_energy=-11.108,
@@ -278,7 +278,7 @@ def gistmodel(gdatarec_lib, gdata_lib, mode, parms=6, pairs=False, decomp_E=Fals
 
         else:
             if verbose:
-                print "Start optimization for ksplit=%d ..." %i
+                print ("Start optimization for ksplit=%d ..." %i)
 
             _print_fun = print_fun(fitter=fitter, mode=mode, optimizer=optimizer, 
                                     optparms=optparms, selection_A=train_group, selection_B=test_group, 
@@ -294,6 +294,6 @@ def gistmodel(gdatarec_lib, gdata_lib, mode, parms=6, pairs=False, decomp_E=Fals
                             optimizer=optimizer)
 
         if verbose:
-            print "Generating output ..."
+            print ("Generating output ...")
 
         _print_fun.finish()

@@ -21,13 +21,13 @@ def mapout(gdatarec_lib, gdata_lib, mode, parms=6, pairs=False,
             exclude=None, prefix=None, scaling=2.0, verbose=False):
 
     if verbose:
-        print "Start mapout procedure with"
-        print "mode      = %d" %mode
-        print "softness  = %6.3f" %softness
-        print "softcut   = %6.3f" %softcut
+        print ("Start mapout procedure with")
+        print ("mode      = %d" %mode)
+        print ("softness  = %6.3f" %softness)
+        print ("softcut   = %6.3f" %softcut)
 
     if verbose:
-        print "Organizing and preparing data ..."
+        print ("Organizing and preparing data ...")
 
     mode_dict = dict()
     mode_dict = {0 : mode0,

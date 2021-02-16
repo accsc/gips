@@ -37,14 +37,14 @@ def decomposition(gdatarec_lib, gdata_lib, mode, parms=6, pairs=True, parmsfile=
                 verbose=False):
 
     if verbose:
-        print "Start mapout procedure with"
-        print "mode      = %d" %mode
-        print "softness  = %6.3f" %softness
-        print "softcut   = %6.3f" %softcut
-        print "parmsfile = %s" %parmsfile
+        print ("Start mapout procedure with")
+        print ("mode      = %d" %mode)
+        print ("softness  = %6.3f" %softness)
+        print ("softcut   = %6.3f" %softcut)
+        print ("parmsfile = %s" %parmsfile)
 
     if verbose:
-        print "Organizing and preparing data ..."
+        print ("Organizing and preparing data ...")
 
     mode_dict = dict()
     mode_dict = {0 : mode0,
@@ -451,35 +451,35 @@ def decomposition(gdatarec_lib, gdata_lib, mode, parms=6, pairs=True, parmsfile=
             frag_lib_lig.refine()
 
     if verbose:
-        print "Poses Fragments..."
+        print ("Poses Fragments...")
         for case in range(fitter.N_case):
             name        = fitter.name[case]
             valid_poses = np.where(fitter.ind_case==case)[0]
-            print name,
+            print (name,)
             for pose in valid_poses:
-                print frag_lib.mol2frag[pose],
-            print ""
+                print (frag_lib.mol2frag[pose],)
+            print ("")
         frag_lib.draw("pos_")
 
         if has_cplxlig:
-            print "Cplx Fragments..."
+            print ("Cplx Fragments...")
             for case in range(fitter.N_case):
                 name        = fitter.name[case]
                 valid_poses = np.where(fitter.ind_case_cplx==case)[0]
-                print name,
+                print (name,)
                 for pose in valid_poses:
-                    print frag_lib_cplx.mol2frag[pose],
-                print ""
+                    print (frag_lib_cplx.mol2frag[pose],)
+                print ("")
             frag_lib_cplx.draw("cplx_")
 
-            print "Lig Fragments..."
+            print ("Lig Fragments...")
             for case in range(fitter.N_case):
                 name        = fitter.name[case]
                 valid_poses = np.where(fitter.ind_case_lig==case)[0]
-                print name,
+                print (name,)
                 for pose in valid_poses:
-                    print frag_lib_lig.mol2frag[pose],
-                print ""
+                    print (frag_lib_lig.mol2frag[pose],)
+                print ("")
             frag_lib_lig.draw("lig_")
 
 
@@ -488,7 +488,7 @@ def decomposition(gdatarec_lib, gdata_lib, mode, parms=6, pairs=True, parmsfile=
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 
     if verbose:
-        print "Calculate fragment weightings..."
+        print ("Calculate fragment weightings...")
     ### Constructor for weight_fitting:
     ### def __init__(self, fitter, x, frag_library, prefix=None, verbose=False):
     weight = weight_fitting(fitter, best_x_A, pairs, frag_lib, "pos", verbose)

@@ -108,12 +108,12 @@ class gdat_fit_lib(object):
                             self.maxdim[j] = posdict["ligand"][i]["gdat"].bins[j]
 
         if self.verbose:
-            print "Maxium bin dimensions found %s ..." %self.maxdim
-            print "Number of receptor found %d ..." %self.N_rec
-            print "Number of poses found %d ..." %self.N_pos
-            print "Number of cases found %d ..." %self.N_case
-            print "Number of complexes found %d ..." %self.N_cplx
-            print "Number of ligands found %d ..." %self.N_lig
+            print ("Maxium bin dimensions found %s ..." %self.maxdim)
+            print ("Number of receptor found %d ..." %self.N_rec)
+            print ("Number of poses found %d ..." %self.N_pos)
+            print ("Number of cases found %d ..." %self.N_case)
+            print ("Number of complexes found %d ..." %self.N_cplx)
+            print ("Number of ligands found %d ..." %self.N_lig)
 
 
     def prepare_gdat(self):
